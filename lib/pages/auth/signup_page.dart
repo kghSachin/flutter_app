@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:frontend_flutter/pages/auth/login_page.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -10,32 +11,18 @@ class SignUpPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 36, 34, 34),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 8,
+          const SizedBox(
+            height: 60,
           ),
-          Stack(
-            children: [
-              SvgPicture.asset(
-                "assets/icons/auth/register_logo.svg",
-                height: 150,
-                width: 100,
-                colorFilter:
-                    const ColorFilter.mode(Colors.cyanAccent, BlendMode.srcIn),
-              ),
-              // Positioned(
-              //   top: 60,
-              //   left: 50,
-              //   child: SvgPicture.asset(
-              //     "assets/icons/auth/login_top_logo.svg",
-              //     height: 100,
-              //     width: 100,
-              //     colorFilter: ColorFilter.mode(Colors.cyan, BlendMode.srcIn),
-              //   ),
-              // ),
-            ],
+          SvgPicture.asset(
+            "assets/icons/auth/register_logo.svg",
+            height: 150,
+            width: 100,
+            colorFilter:
+                const ColorFilter.mode(Colors.cyanAccent, BlendMode.srcIn),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height / 7,
+            height: MediaQuery.of(context).size.height / 12,
           ),
           Container(
             decoration: BoxDecoration(
@@ -122,7 +109,9 @@ class SignUpPage extends StatelessWidget {
                   height: 12,
                 ),
                 TextFormField(
+                  style: TextStyle(color: Colors.white.withOpacity(0.8)),
                   decoration: InputDecoration(
+                      alignLabelWithHint: true,
                       isDense: true,
                       fillColor: Colors.black,
                       border: OutlineInputBorder(
@@ -147,16 +136,6 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                // Align(
-                //   alignment: Alignment.centerRight,
-                //   child: TextButton(
-                //       style: TextButton.styleFrom(
-                //         padding: const EdgeInsets.all(0),
-                //       ),
-                //       onPressed: () {},
-                //       child: const Text("Already have an account?",
-                //           style: TextStyle(color: Colors.cyan))),
-                // ),
               ],
             ),
           ),
@@ -188,7 +167,10 @@ class SignUpPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const LoginPage()));
+                  },
                   child: const Text(
                     "Login",
                     style: TextStyle(color: Colors.cyan),

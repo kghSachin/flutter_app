@@ -10,32 +10,18 @@ class LoginPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 36, 34, 34),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 8,
+          const SizedBox(
+            height: 60,
           ),
-          Stack(
-            children: [
-              SvgPicture.asset(
-                "assets/icons/auth/atomic_book_logo.svg",
-                height: 150,
-                width: 100,
-                colorFilter:
-                    const ColorFilter.mode(Colors.cyanAccent, BlendMode.srcIn),
-              ),
-              // Positioned(
-              //   top: 60,
-              //   left: 50,
-              //   child: SvgPicture.asset(
-              //     "assets/icons/auth/login_top_logo.svg",
-              //     height: 100,
-              //     width: 100,
-              //     colorFilter: ColorFilter.mode(Colors.cyan, BlendMode.srcIn),
-              //   ),
-              // ),
-            ],
+          SvgPicture.asset(
+            "assets/icons/auth/register_logo.svg",
+            height: 150,
+            width: 100,
+            colorFilter:
+                const ColorFilter.mode(Colors.cyanAccent, BlendMode.srcIn),
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 5,
+          const SizedBox(
+            height: 60,
           ),
           Container(
             decoration: BoxDecoration(
@@ -54,7 +40,7 @@ class LoginPage extends StatelessWidget {
                   "Login",
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: Colors.white,
                       ),
                 ),
                 const SizedBox(
@@ -97,6 +83,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextFormField(
                   decoration: InputDecoration(
+                      alignLabelWithHint: true,
                       isDense: true,
                       fillColor: Colors.black,
                       border: OutlineInputBorder(
@@ -105,7 +92,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       filled: true,
                       prefixIcon: const Icon(
-                        Icons.mail,
+                        Icons.password,
                         color: Colors.cyan,
                       ),
                       label: Text(
@@ -116,7 +103,7 @@ class LoginPage extends StatelessWidget {
                       suffixIcon: TextButton(
                           onPressed: () {},
                           child: const Text("show",
-                              style: TextStyle(color: Colors.white)))),
+                              style: TextStyle(color: Colors.cyan)))),
                 ),
                 const SizedBox(
                   height: 6,
@@ -169,6 +156,136 @@ class LoginPage extends StatelessWidget {
                   ))
             ],
           ),
+          const SizedBox(
+            height: 40,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    thickness: 0.5,
+                    color: Colors.white.withOpacity(0.6),
+                  ),
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Text(
+                  " OR ",
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: Colors.white.withOpacity(0.6),
+                      ),
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Expanded(
+                  child: Divider(
+                    thickness: 0.5,
+                    color: Colors.white.withOpacity(0.6),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.red.withOpacity(0.8),
+                  child: SvgPicture.asset(
+                    "assets/icons/auth/google_sign.svg",
+                    height: 26,
+                    colorFilter:
+                        const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  ),
+                ),
+                const SizedBox(
+                  width: 32,
+                ),
+                CircleAvatar(
+                  backgroundColor: Colors.blue.withOpacity(0.8),
+                  child: SvgPicture.asset(
+                    "assets/icons/auth/facebook_sign.svg",
+                    height: 32,
+                    colorFilter:
+                        const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                  ),
+                ),
+              ],
+            ),
+          )
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          //   child: Row(
+          //     children: [
+          //       Expanded(
+          //         child: MaterialButton(
+          //           shape: RoundedRectangleBorder(
+          //               borderRadius: BorderRadius.circular(8)),
+          //           color: Colors.red,
+          //           onPressed: () {},
+          //           child: Row(
+          //               mainAxisAlignment: MainAxisAlignment.center,
+          //               children: [
+          //                 SvgPicture.asset(
+          //                   "assets/icons/auth/google_sign.svg",
+          //                   height: 20,
+          //                   colorFilter: const ColorFilter.mode(
+          //                       Colors.white, BlendMode.srcIn),
+          //                 ),
+          //                 const SizedBox(
+          //                   width: 8,
+          //                 ),
+          //                 const Text(
+          //                   "Gmail",
+          //                   style: TextStyle(
+          //                     color: Colors.white,
+          //                   ),
+          //                 )
+          //               ]),
+          //         ),
+          //       ),
+          //       const SizedBox(
+          //         width: 16,
+          //       ),
+          //       Expanded(
+          //         child: MaterialButton(
+          //           shape: RoundedRectangleBorder(
+          //               borderRadius: BorderRadius.circular(8)),
+          //           color: Colors.blue,
+          //           onPressed: () {},
+          //           child: Row(
+          //             mainAxisAlignment: MainAxisAlignment.center,
+          //             children: [
+          //               SvgPicture.asset(
+          //                 "assets/icons/auth/facebook_sign.svg",
+          //                 colorFilter: const ColorFilter.mode(
+          //                     Colors.white, BlendMode.srcIn),
+          //               ),
+          //               const SizedBox(
+          //                 width: 8,
+          //               ),
+          //               const Text(
+          //                 "Facebook",
+          //                 style: TextStyle(
+          //                   color: Colors.white,
+          //                 ),
+          //               )
+          //             ],
+          //           ),
+          //         ),
+          //       )
+          //     ],
+          //   ),
+          // )
         ]),
       ),
     );
