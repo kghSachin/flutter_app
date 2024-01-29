@@ -20,12 +20,3 @@ class MyApp extends StatelessWidget {
         home: const SignUpPage());
   }
 }
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "230713806654",
+    "project_id": "online-course-app-e436c",
+    "storage_bucket": "online-course-app-e436c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230713806654:android:4e90140b62d4a327b4266f",
+        "android_client_info": {
+          "package_name": "com.gmail.sachinbasnet971.frontend_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuOMI5gbKBx7k35gtQ9YaZs_MI8PvW6rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
