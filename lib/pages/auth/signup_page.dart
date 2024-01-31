@@ -1,9 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:frontend_flutter/backend/authentication/authenticator.dart';
 import 'package:frontend_flutter/pages/auth/login_page.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  signup(email, password) async {
+    await Authenticator().register(email, password);
+  }
+
+  late final TextEditingController emailController;
+  late final TextEditingController passwordController;
+  @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +83,7 @@ class SignUpPage extends StatelessWidget {
                   height: 16,
                 ),
                 TextFormField(
+                  controller: emailController,
                   style: TextStyle(color: Colors.white.withOpacity(0.8)),
                   decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.white.withOpacity(0.4)),
@@ -83,6 +110,7 @@ class SignUpPage extends StatelessWidget {
                   height: 12,
                 ),
                 TextFormField(
+                  controller: emailController,
                   style: TextStyle(color: Colors.white.withOpacity(0.8)),
                   decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.white.withOpacity(0.4)),
@@ -109,6 +137,7 @@ class SignUpPage extends StatelessWidget {
                   height: 12,
                 ),
                 TextFormField(
+                  controller: passwordController,
                   style: TextStyle(color: Colors.white.withOpacity(0.8)),
                   decoration: InputDecoration(
                       alignLabelWithHint: true,
@@ -146,7 +175,9 @@ class SignUpPage extends StatelessWidget {
             child: MaterialButton(
               minWidth: MediaQuery.of(context).size.width / 2,
               height: 48,
-              onPressed: () {},
+              onPressed: () {
+                signup(emailController.text, passwordController.text);
+              },
               color: Colors.cyan,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16)),
