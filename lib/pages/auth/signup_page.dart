@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:frontend_flutter/backend/authentication/authenticator.dart';
+import 'package:frontend_flutter/backend/enum/auth_result.dart';
 import 'package:frontend_flutter/pages/auth/login_page.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -12,7 +13,13 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   signup(email, password) async {
-    await Authenticator().register(email, password);
+    final resultOfRequest = await Authenticator().register(email, password);
+    if (resultOfRequest == AuthResult.success && mounted) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => const LoginPage()));
+    } else if (resultOfRequest == AuthResult.weakPassword) {
+    } else if (resultOfRequest == AuthResult.emailAlreadyInUse) {
+    } else {}
   }
 
   late final TextEditingController emailController;
