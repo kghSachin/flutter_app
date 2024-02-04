@@ -86,8 +86,111 @@ class ProfilePage extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
               ),
+              Divider(
+                color: Colors.deepPurple.withOpacity(0.3),
+                thickness: 2,
+                height: 32,
+              ),
+              const ProfileTile(),
+              const SizedBox(
+                height: 16,
+              ),
+              const ProfileTile(),
+              const SizedBox(
+                height: 16,
+              ),
+              const ProfileTile(),
+              const SizedBox(
+                height: 16,
+              ),
+              const ProfileTile(),
+              const SizedBox(
+                height: 16,
+              ),
+              const ProfileTile(),
+              SizedBox(
+                height: 24,
+              ),
+              MaterialButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: EdgeInsets.zero,
+                onPressed: () {},
+                child: Container(
+                    width: double.maxFinite,
+                    height: 60,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.logout,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Text(
+                          "Logout",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(color: Colors.white),
+                        ),
+                        const Spacer(),
+                        const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 18,
+                          color: Colors.white,
+                        )
+                      ],
+                    )),
+              )
             ],
           ),
         ));
+  }
+}
+
+class ProfileTile extends StatelessWidget {
+  const ProfileTile({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: EdgeInsets.zero,
+      onPressed: () {},
+      child: Container(
+          width: double.maxFinite,
+          height: 60,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            color: Colors.deepPurple.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              const Icon(Icons.person),
+              const SizedBox(
+                width: 16,
+              ),
+              Text(
+                "Edit Profile",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const Spacer(),
+              const Icon(Icons.arrow_forward_ios, size: 16)
+            ],
+          )),
+    );
   }
 }

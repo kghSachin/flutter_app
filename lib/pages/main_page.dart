@@ -19,11 +19,17 @@ class _MainPageState extends State<MainPage> {
         index: _selectedIndex,
         children: const [
           HomePage(),
+          HomePage(),
           ProfilePage(),
           ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         backgroundColor: Colors.transparent,
         elevation: 0,
         selectedIconTheme: const IconThemeData(color: Colors.deepPurple),
@@ -33,26 +39,16 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _selectedIndex,
         items: [
           BottomNavigationBarItem(
-              icon: InkWell(
-                onTap: () {
-                  setState(() {
-                    _selectedIndex = 0;
-                  });
-                },
-                child: SvgPicture.asset(
-                  "assets/icons/home/home.svg",
-                  colorFilter: ColorFilter.mode(
-                      _selectedIndex == 0 ? Colors.deepPurple : Colors.grey,
-                      BlendMode.srcIn),
-                ),
+              icon: SvgPicture.asset(
+                "assets/icons/home/home.svg",
+                colorFilter: ColorFilter.mode(
+                    _selectedIndex == 0 ? Colors.deepPurple : Colors.grey,
+                    BlendMode.srcIn),
               ),
               label: "Home"),
           BottomNavigationBarItem(
-              icon: InkWell(
-                onTap: () {
-                  _selectedIndex = 1;
-                  setState(() {});
-                },
+              icon: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: SvgPicture.asset(
                   "assets/icons/home/bookmark.svg",
                   colorFilter: ColorFilter.mode(
@@ -62,24 +58,28 @@ class _MainPageState extends State<MainPage> {
               ),
               label: "Bookmark"),
           BottomNavigationBarItem(
-              icon: InkWell(
-                onTap: () {
-                  setState(() {
-                    _selectedIndex = 2;
-                  });
-                },
-                child: CircleAvatar(
-                  radius: 14,
-                  backgroundColor: _selectedIndex == 2
-                      ? Colors.purple
-                      : Colors.grey.withOpacity(0.3),
-                  child: Icon(
-                    Icons.person,
-                    color: _selectedIndex == 2 ? Colors.white : Colors.grey,
-                  ),
-                ),
+            icon: SvgPicture.asset(
+              "assets/icons/home/chat.svg",
+              height: 28,
+              colorFilter: ColorFilter.mode(
+                  _selectedIndex == 2 ? Colors.deepPurple : Colors.grey,
+                  BlendMode.srcIn),
+            ),
+            label: "chat",
+          ),
+          BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 14,
+              backgroundColor: _selectedIndex == 3
+                  ? Colors.purple
+                  : Colors.grey.withOpacity(0.3),
+              child: Icon(
+                Icons.person,
+                color: _selectedIndex == 3 ? Colors.white : Colors.grey,
               ),
-              label: "Bookmark"),
+            ),
+            label: "Profile",
+          ),
         ],
       ),
     );
