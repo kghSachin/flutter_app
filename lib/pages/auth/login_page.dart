@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 36, 34, 34),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -269,71 +269,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-            )
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            //   child: Row(
-            //     children: [
-            //       Expanded(
-            //         child: MaterialButton(
-            //           shape: RoundedRectangleBorder(
-            //               borderRadius: BorderRadius.circular(8)),
-            //           color: Colors.red,
-            //           onPressed: () {},
-            //           child: Row(
-            //               mainAxisAlignment: MainAxisAlignment.center,
-            //               children: [
-            //                 SvgPicture.asset(
-            //                   "assets/icons/auth/google_sign.svg",
-            //                   height: 20,
-            //                   colorFilter: const ColorFilter.mode(
-            //                       Colors.white, BlendMode.srcIn),
-            //                 ),
-            //                 const SizedBox(
-            //                   width: 8,
-            //                 ),
-            //                 const Text(
-            //                   "Gmail",
-            //                   style: TextStyle(
-            //                     color: Colors.white,
-            //                   ),
-            //                 )
-            //               ]),
-            //         ),
-            //       ),
-            //       const SizedBox(
-            //         width: 16,
-            //       ),
-            //       Expanded(
-            //         child: MaterialButton(
-            //           shape: RoundedRectangleBorder(
-            //               borderRadius: BorderRadius.circular(8)),
-            //           color: Colors.blue,
-            //           onPressed: () {},
-            //           child: Row(
-            //             mainAxisAlignment: MainAxisAlignment.center,
-            //             children: [
-            //               SvgPicture.asset(
-            //                 "assets/icons/auth/facebook_sign.svg",
-            //                 colorFilter: const ColorFilter.mode(
-            //                     Colors.white, BlendMode.srcIn),
-            //               ),
-            //               const SizedBox(
-            //                 width: 8,
-            //               ),
-            //               const Text(
-            //                 "Facebook",
-            //                 style: TextStyle(
-            //                   color: Colors.white,
-            //                 ),
-            //               )
-            //             ],
-            //           ),
-            //         ),
-            //       )
-            //     ],
-            //   ),
-            // )
+            ),
           ],
         ),
       ),
